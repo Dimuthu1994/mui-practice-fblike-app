@@ -1,13 +1,13 @@
 import { Button } from "@mui/material";
-import { styled } from "@mui/styles";
+import styled from "@emotion/styled";
 import DeleteIcon from "@mui/icons-material/Delete";
-
+import { purple } from "@mui/material/colors";
 const MyButton = styled(Button)({
   color: "white",
-  backgroundColor: "#212121",
+  backgroundColor: purple[800],
 
   "&:hover": {
-    backgroundColor: "#616161",
+    backgroundColor: purple[500],
   },
 });
 
