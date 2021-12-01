@@ -15,7 +15,7 @@ const MyToolbar = styled(Toolbar)(({ theme }) => ({
 const MySearchbar = styled("div")(({ theme, open }) => ({
   display: "flex",
   alignItems: "center",
-  justifyContent: "space-between",
+
   borderRadius: theme.shape.borderRadius,
   width: "50%",
   backgroundColor: "#f3f6f9f0",
@@ -76,7 +76,10 @@ function Navbar(props) {
 
         <MySearchbar open={open}>
           <Search sx={{ color: "primary.main" }} />
-          <InputBase placeholder="Search…" sx={{ marginLeft: 1 }} />
+          <InputBase
+            placeholder="Search…"
+            sx={{ marginLeft: 1, width: "100%" }}
+          />
           <Cancel
             onClick={() => setOpen(false)}
             sx={{ display: { xs: "flex", sm: "none" } }}
