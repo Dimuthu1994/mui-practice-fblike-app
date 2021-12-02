@@ -1,4 +1,10 @@
-import { AppBar, Avatar, Toolbar, Typography } from "@mui/material";
+import {
+  AppBar,
+  Avatar,
+  CssBaseline,
+  Toolbar,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -51,63 +57,69 @@ const MyIconContainer = styled("div")(({ theme }) => ({
 function Navbar(props) {
   const [open, setOpen] = useState(false);
   return (
-    <AppBar sx={{ bgcolor: "background.paper", boxShadow: 1 }}>
-      <MyToolbar>
-        <Typography
-          sx={{
-            display: { xs: "none", sm: "block" },
-            fontWeight: "bold",
-            color: "primary.main",
-          }}
-          variant="h6"
-        >
-          dimbook
-        </Typography>
-        <Typography
-          sx={{
-            display: { xs: "block", sm: "none" },
-            fontWeight: "bold",
-            color: "primary.main",
-          }}
-          variant="h6"
-        >
-          <MyIconContainer>d</MyIconContainer>
-        </Typography>
-
-        <MySearchbar open={open}>
-          <Search sx={{ color: "primary.main" }} />
-          <InputBase
-            placeholder="Search…"
-            sx={{ marginLeft: 1, width: "100%" }}
-          />
-          <Cancel
-            onClick={() => setOpen(false)}
-            sx={{ display: { xs: "flex", sm: "none" } }}
-          />
-        </MySearchbar>
-
-        <MyIcons open={open}>
-          <Search
+    <>
+      <CssBaseline />
+      <AppBar
+        position="sticky"
+        sx={{ bgcolor: "background.paper", boxShadow: 1 }}
+      >
+        <MyToolbar>
+          <Typography
+            variant="h6"
             sx={{
+              display: { xs: "none", sm: "block" },
+              fontWeight: "bold",
               color: "primary.main",
-              display: { xs: "flex", sm: "none" },
             }}
-            onClick={() => setOpen(true)}
-          />
-          <Badge badgeContent={4} color="error" sx={{ marginLeft: 1 }}>
-            <MailIcon color="info" />
-          </Badge>
-          <Badge badgeContent={4} color="error" sx={{ marginLeft: 1 }}>
-            <NotificationsIcon color="info" />
-          </Badge>
-          <Avatar
-            sx={{ marginLeft: 2 }}
-            alt="Remy Sharp"
-            src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"
-          />
-        </MyIcons>
-      </MyToolbar>
-    </AppBar>
+          >
+            dimbook
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{
+              display: { xs: "block", sm: "none" },
+              fontWeight: "bold",
+              color: "primary.main",
+            }}
+          >
+            <MyIconContainer>d</MyIconContainer>
+          </Typography>
+
+          <MySearchbar open={open}>
+            <Search sx={{ color: "primary.main" }} />
+            <InputBase
+              placeholder="Search…"
+              sx={{ marginLeft: 1, width: "100%" }}
+            />
+            <Cancel
+              onClick={() => setOpen(false)}
+              sx={{ display: { xs: "flex", sm: "none" } }}
+            />
+          </MySearchbar>
+
+          <MyIcons open={open}>
+            <Search
+              sx={{
+                color: "primary.main",
+                display: { xs: "flex", sm: "none" },
+              }}
+              onClick={() => setOpen(true)}
+            />
+            <Badge badgeContent={4} color="error" sx={{ marginLeft: 1 }}>
+              <MailIcon color="info" />
+            </Badge>
+            <Badge badgeContent={4} color="error" sx={{ marginLeft: 1 }}>
+              <NotificationsIcon color="info" />
+            </Badge>
+            <Avatar
+              sx={{ marginLeft: 2 }}
+              alt="Remy Sharp"
+              src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?cs=srgb&dl=pexels-pixabay-220453.jpg&fm=jpg"
+            />
+          </MyIcons>
+        </MyToolbar>
+      </AppBar>
+    </>
   );
 }
 
