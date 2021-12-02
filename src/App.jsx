@@ -9,13 +9,13 @@ function App() {
     <>
       <Navbar />
       <Grid container>
-        <Grid item sm={2}>
+        <Grid item sm={2.5} xs={2}>
           <Leftbar />
         </Grid>
-        <Grid item sm={7}>
+        <Grid item sm={6.5} xs={10}>
           <Feeds />
         </Grid>
-        <Grid item sm={3}>
+        <Grid item sm={3} sx={{ display: { xs: "none", sm: "flex" } }}>
           <Rightbar />
         </Grid>
       </Grid>
