@@ -9,11 +9,13 @@ import {
   Modal,
   Radio,
   RadioGroup,
+  Snackbar,
   TextField,
   Tooltip,
 } from "@mui/material";
 import React, { useState } from "react";
 import { styled, alpha } from "@mui/material/styles";
+import MuiAlert from "@mui/material/Alert";
 
 const AddContainer = styled(Container)(({ theme }) => ({
   width: 500,
@@ -42,8 +44,21 @@ const Mydiv = styled("div")(({ theme }) => ({
   marginBottom: theme.spacing(2),
 }));
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={3} ref={ref} variant="filled" {...props} />;
+});
+
 function AddPosts(props) {
   const [open, setOpen] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false);
+
+  const handleClose = (event, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpenAlert(false);
+  };
+
   return (
     <>
       <Tooltip title="Add" aria-label="add" onClick={() => setOpen(true)}>
@@ -107,7 +122,12 @@ function AddPosts(props) {
             </Mydiv>
 
             <Mydiv sx={{ mb: 2 }}>
-              <Button variant="outlined" color="primary" sx={{ mr: 1 }}>
+              <Button
+                variant="outlined"
+                color="primary"
+                sx={{ mr: 1 }}
+                onClick={() => setOpenAlert(true)}
+              >
                 Create
               </Button>
               <Button
@@ -121,6 +141,12 @@ function AddPosts(props) {
           </MyForm>
         </AddContainer>
       </Modal>
+
+      <Snackbar open={openAlert} autoHideDuration={3000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
+          This is a success message!
+        </Alert>
+      </Snackbar>
     </>
   );
 }
