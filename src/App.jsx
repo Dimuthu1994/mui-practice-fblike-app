@@ -1,4 +1,5 @@
 import { Grid } from "@mui/material";
+import AddPosts from "./components/Add";
 import Feeds from "./components/Feeds";
 import Leftbar from "./components/Leftbar";
 import Navbar from "./components/Navbar";
@@ -19,6 +20,7 @@ function App() {
           <Rightbar />
         </Grid>
       </Grid>
+      <AddPosts />
     </>
   );
 }
