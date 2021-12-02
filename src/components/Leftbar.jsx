@@ -17,6 +17,8 @@ import React from "react";
 const MyContainer = styled(Container)(({ theme }) => ({
   height: "100vh",
   color: "#fff",
+  position: "sticky",
+  top: 0,
   paddingTop: theme.spacing(2),
   backgroundColor: theme.palette.primary.main,
 
@@ -36,6 +38,9 @@ const ItemContainer = styled("div")(({ theme }) => ({
   [theme.breakpoints.up("sm")]: {
     marginBottom: theme.spacing(3),
     justifyContent: "start",
+  },
+  "&:hover": {
+    backgroundColor: "#f0f3f7ef",
   },
 }));
 
